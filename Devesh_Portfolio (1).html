@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Devesh Upadhyay — Data Analyst & BI Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#101B29;
+    --navy-light:#1B2C41;
+    --steel:#3E6483;
+    --gold:#C9973B;
+    --paper:#F5F3ED;
+    --paper-dim:#E8E5DC;
+    --ink:#1B1B18;
+    --ink-soft:#5A5A52;
+    --line:#D8D5C9;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+  }
+  h1,h2,h3{font-family:'Newsreader',serif;font-weight:500;color:var(--navy);}
+  a{color:inherit;text-decoration:none;}
+
+  .wrap{max-width:880px;margin:0 auto;padding:0 32px;}
+
+  /* NAV */
+  nav.topnav{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(16,27,41,0.94);
+    backdrop-filter:saturate(150%) blur(6px);
+    border-bottom:1px solid rgba(245,243,237,0.08);
+  }
+  nav.topnav .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:60px;
+  }
+  nav.topnav .brand{
+    font-family:'Newsreader',serif;
+    color:var(--paper);
+    font-size:17px;
+  }
+  nav.topnav .navlinks{
+    display:flex;
+    gap:28px;
+    font-size:13.5px;
+    color:#B9C4D0;
+  }
+  nav.topnav .navlinks a{position:relative;padding:4px 0;}
+  nav.topnav .navlinks a:hover{color:var(--paper);}
+  nav.topnav .navlinks a::after{
+    content:"";
+    position:absolute;
+    left:0; bottom:-2px;
+    width:0; height:1px;
+    background:var(--gold);
+    transition:width .2s ease;
+  }
+  nav.topnav .navlinks a:hover::after{width:100%;}
+  nav.topnav .cta{
+    font-size:13px;
+    color:var(--navy);
+    background:var(--gold);
+    padding:8px 16px;
+    border-radius:5px;
+    font-weight:500;
+    transition:opacity .15s ease;
+  }
+  nav.topnav .cta:hover{opacity:.85;}
+  @media (max-width:680px){ nav.topnav .navlinks{display:none;} }
+
+  /* HERO */
+  header.hero{
+    background:var(--navy);
+    color:var(--paper);
+    padding:88px 0 0;
+    position:relative;
+    overflow:hidden;
+  }
+  header.hero .hero-inner{
+    display:grid;
+    grid-template-columns:1fr 260px;
+    gap:24px;
+    align-items:end;
+    padding-bottom:64px;
+  }
+  .hero-text{opacity:0; animation:riseIn .7s ease forwards;}
+  .hero-text.d2{animation-delay:.12s;}
+  .hero-text.d3{animation-delay:.24s;}
+  .hero-text.d4{animation-delay:.36s;}
+  @keyframes riseIn{
+    from{opacity:0; transform:translateY(14px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+  .eyebrow{
+    color:var(--gold);
+    font-size:14px;
+    letter-spacing:.02em;
+    margin-bottom:18px;
+  }
+  header.hero h1{
+    font-size:52px;
+    line-height:1.12;
+    color:var(--paper);
+    max-width:600px;
+  }
+  header.hero .role{
+    font-size:19px;
+    color:#B9C4D0;
+    margin-top:14px;
+    max-width:520px;
+  }
+  .contact-row{
+    margin-top:36px;
+    display:flex;
+    flex-wrap:wrap;
+    font-size:14px;
+    color:#C8D0D9;
+  }
+  .contact-row a, .contact-row span{margin-right:28px;display:inline-block;}
+  .contact-row a:hover{color:var(--gold);}
+
+  .hero-chart{
+    opacity:0;
+    animation:riseIn .8s ease forwards;
+    animation-delay:.3s;
+  }
+  .hero-chart svg{width:100%;height:auto;display:block;}
+  .hero-chart .bar{transform-origin:bottom;animation:growBar .9s cubic-bezier(.2,.7,.3,1) forwards;opacity:0;}
+  @keyframes growBar{
+    from{transform:scaleY(0); opacity:0;}
+    to{transform:scaleY(1); opacity:1;}
+  }
+  @media (max-width:680px){
+    header.hero .hero-inner{grid-template-columns:1fr;}
+    .hero-chart{display:none;}
+  }
+
+  /* METRICS STRIP */
+  .metrics{
+    background:var(--navy-light);
+    border-top:1px solid rgba(245,243,237,0.08);
+  }
+  .metrics .wrap{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:0;
+  }
+  .metric{
+    padding:28px 20px;
+    border-left:1px solid rgba(245,243,237,0.08);
+    transition:background .2s ease;
+  }
+  .metric:hover{background:rgba(245,243,237,0.03);}
+  .metric:first-child{border-left:none;}
+  .metric .num{
+    font-family:'Newsreader',serif;
+    font-size:30px;
+    color:var(--gold);
+  }
+  .metric .label{
+    font-size:12.5px;
+    color:#A9B3BE;
+    margin-top:4px;
+  }
+
+  /* SECTIONS */
+  main{padding:72px 0;}
+  section{margin-bottom:64px;scroll-margin-top:80px;}
+  section h2{
+    font-size:26px;
+    margin-bottom:28px;
+    padding-bottom:14px;
+    border-bottom:1px solid var(--line);
+  }
+  section > p.lede{
+    font-size:16.5px;
+    color:var(--ink-soft);
+    max-width:640px;
+    margin-bottom:8px;
+  }
+
+  /* EXPERIENCE */
+  .job{
+    display:grid;
+    grid-template-columns:150px 1fr;
+    gap:24px;
+    padding:24px 20px;
+    margin:0 -20px;
+    border-top:1px solid var(--line);
+    border-left:2px solid transparent;
+    transition:border-left-color .2s ease, background .2s ease;
+  }
+  .job:hover{border-left-color:var(--gold); background:rgba(201,151,59,0.04);}
+  .job:last-child{border-bottom:1px solid var(--line);}
+  .job .when{
+    font-size:13.5px;
+    color:var(--steel);
+    font-weight:500;
+    padding-top:2px;
+  }
+  .job h3{font-size:19px;margin-bottom:2px;}
+  .job .org{font-size:14px;color:var(--ink-soft);margin-bottom:12px;}
+  .job ul{padding-left:18px;font-size:15px;color:var(--ink);}
+  .job li{margin-bottom:7px;}
+
+  /* PROJECTS */
+  .projects-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+  }
+  .project-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:26px;
+    transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .project-card:hover{
+    transform:translateY(-4px);
+    border-color:var(--steel);
+    box-shadow:0 12px 24px rgba(16,27,41,0.08);
+  }
+  .project-card h3{font-size:18px;margin-bottom:10px;}
+  .project-card p{font-size:14.5px;color:var(--ink-soft);margin-bottom:8px;}
+  .project-card .impact{
+    font-size:13.5px;
+    color:var(--steel);
+    font-weight:500;
+    margin-top:12px;
+    border-top:1px solid var(--line);
+    padding-top:12px;
+  }
+
+  /* SKILLS */
+  .skills-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px 40px;
+  }
+  .skill-row{
+    display:flex;
+    justify-content:space-between;
+    gap:16px;
+    font-size:14.5px;
+    padding:10px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .skill-row .cat{color:var(--navy);font-weight:500;min-width:150px;}
+  .skill-row .vals{color:var(--ink-soft);text-align:right;}
+
+  /* EDUCATION + ACHIEVEMENTS */
+  .edu-item{padding:14px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;}
+  .edu-item:last-child{border-bottom:1px solid var(--line);}
+  .edu-item .deg{font-weight:500;color:var(--navy);}
+  .edu-item .inst{font-size:14px;color:var(--ink-soft);}
+  .edu-item .yr{font-size:13.5px;color:var(--steel);white-space:nowrap;}
+
+  .ach-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .ach{padding:18px;background:#fff;border:1px solid var(--line);border-radius:6px;transition:transform .2s ease, box-shadow .2s ease;}
+  .ach:hover{transform:translateY(-3px);box-shadow:0 10px 20px rgba(16,27,41,0.07);}
+  .ach .title{font-weight:500;color:var(--navy);font-size:14.5px;margin-bottom:4px;}
+  .ach .desc{font-size:14px;color:var(--ink-soft);}
+
+  /* FOOTER */
+  footer{
+    background:var(--navy);
+    color:#C8D0D9;
+    padding:56px 0;
+    text-align:center;
+  }
+  footer h2{color:var(--paper);font-size:24px;margin-bottom:10px;}
+  footer p{font-size:14.5px;margin-bottom:24px;color:#A9B3BE;}
+  footer .links{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;font-size:14px;}
+  footer .links a{margin:0 14px;position:relative;}
+  footer .links a{border-bottom:1px solid rgba(245,243,237,0.3);padding-bottom:2px;}
+  footer .links a:hover{color:var(--gold);border-color:var(--gold);}
+  footer .links a .tip{
+    position:absolute;
+    bottom:calc(100% + 10px);
+    left:50%;
+    transform:translateX(-50%);
+    background:var(--paper);
+    color:var(--navy);
+    font-size:13px;
+    font-weight:500;
+    padding:7px 14px;
+    border-radius:5px;
+    white-space:nowrap;
+    opacity:0;
+    visibility:hidden;
+    transition:opacity .15s ease;
+    pointer-events:none;
+  }
+  footer .links a .tip::after{
+    content:"";
+    position:absolute;
+    top:100%;
+    left:50%;
+    transform:translateX(-50%);
+    border:6px solid transparent;
+    border-top-color:var(--paper);
+  }
+  footer .links a:hover .tip{opacity:1;visibility:visible;}
+  footer .contact-plain{
+    margin-top:24px;
+    font-size:13.5px;
+    color:#8290A0;
+  }
+  footer .contact-plain span{margin:0 10px;}
+
+  @media (max-width:680px){
+    header.hero h1{font-size:36px;}
+    .metrics .wrap{grid-template-columns:1fr 1fr;}
+    .metric{border-left:none;border-top:1px solid rgba(245,243,237,0.08);}
+    .metric:nth-child(1),.metric:nth-child(2){border-top:none;}
+    .job{grid-template-columns:1fr;gap:6px;margin:0;padding:20px 0;}
+    .projects-grid, .skills-grid, .ach-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="wrap">
+    <div class="brand">Devesh Upadhyay</div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+    </div>
+    <a class="cta" href="mailto:upadhyaydevesh981@gmail.com">Get in touch</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow hero-text">Portfolio</div>
+        <h1 class="hero-text d2">Devesh Upadhyay</h1>
+        <p class="role hero-text d3">Data Analyst turning large, complex government and institutional datasets into dashboards that leadership actually uses to make decisions.</p>
+        <div class="contact-row hero-text d4">
+          <a href="mailto:upadhyaydevesh981@gmail.com">upadhyaydevesh981@gmail.com</a>
+          <a href="tel:+919870794869">+91 98707 94869</a>
+          <span>Greater Noida West, Uttar Pradesh</span>
+        </div>
+      </div>
+      <div class="hero-chart">
+        <svg viewBox="0 0 220 160" preserveAspectRatio="xMidYMax meet">
+          <line x1="0" y1="140" x2="220" y2="140" stroke="rgba(245,243,237,0.15)" stroke-width="1"/>
+          <rect class="bar" x="10"  y="90"  width="26" height="50" rx="3" fill="#3E6483" style="animation-delay:.5s"/>
+          <rect class="bar" x="52"  y="60"  width="26" height="80" rx="3" fill="#3E6483" style="animation-delay:.6s"/>
+          <rect class="bar" x="94"  y="30"  width="26" height="110" rx="3" fill="#C9973B" style="animation-delay:.7s"/>
+          <rect class="bar" x="136" y="70"  width="26" height="70" rx="3" fill="#3E6483" style="animation-delay:.8s"/>
+          <rect class="bar" x="178" y="45"  width="26" height="95" rx="3" fill="#3E6483" style="animation-delay:.9s"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="metrics">
+  <div class="wrap">
+    <div class="metric"><div class="num">94%+</div><div class="label">SLA compliance sustained</div></div>
+    <div class="metric"><div class="num">741+</div><div class="label">Weekly tasks tracked</div></div>
+    <div class="metric"><div class="num">2</div><div class="label">Govt / defense projects</div></div>
+    <div class="metric"><div class="num">1+ yr</div><div class="label">BI & analytics experience</div></div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <section id="about">
+    <h2>About</h2>
+    <p class="lede">Data Analyst with 1+ year of experience delivering enterprise-grade Power BI and Apache Superset dashboards for government and institutional clients. Skilled in SQL performance optimization, automated data pipelines, and Python-based analytics — with a track record of turning large, complex datasets into insights that support faster, evidence-based decisions. Comfortable working directly with stakeholders to translate business requirements into scalable analytics solutions within CMMI Level 5 environments.</p>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+
+    <div class="job">
+      <div class="when">May 2026 – Present</div>
+      <div>
+        <h3>Data Analyst & Business Analyst</h3>
+        <div class="org">Raksha Awaas, Ministry of Defence · NetProphets Cyberworks</div>
+        <ul>
+          <li>Lead analytics operations for an internet-based accommodation management system used by the Army, Navy, and Air Force.</li>
+          <li>Designed Super Admin and Director-level dashboards giving leadership a real-time, consolidated view of accommodation inventory and allotment status across Delhi stations.</li>
+          <li>Built a predictive model to forecast house allotment for armed forces officers using historical allotment and vacancy data.</li>
+          <li>Authored the platform's Software Requirements Specification (SRS) and oversaw screen development end-to-end.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when">Oct 2025 – May 2026</div>
+      <div>
+        <h3>Data Analyst</h3>
+        <div class="org">AWES (Army Welfare Education Society) · NetProphets Cyberworks</div>
+        <ul>
+          <li>Designed an end-to-end SLA monitoring dashboard in Power BI tracking 700+ weekly tasks across a 5-member development team.</li>
+          <li>Delivered per-developer efficiency scores and sprint-wise SLA breakdown trends, helping the Program Manager sustain SLA compliance above 94%.</li>
+          <li>Re-engineered SQL query architecture and introduced automated data pipelines, cutting report generation time.</li>
+          <li>Validated datasets against CMMI Level 5 maturity standards and ran what-if scenario modeling.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when">Apr 2025 – Sep 2025</div>
+      <div>
+        <h3>Trainee Analyst</h3>
+        <div class="org">NetProphets Cyberworks</div>
+        <ul>
+          <li>Built dynamic visualization dashboards in Power BI and Apache Superset, performing data cleaning and exploratory analysis.</li>
+          <li>Developed automated web-scraping pipelines to aggregate structured data from multiple online sources.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Key projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>Census data analytics dashboard</h3>
+        <p>Interactive Power BI dashboard visualizing demographic insights across India, with preprocessing pipelines built to handle million-record datasets.</p>
+        <p>Heat maps and geographic visualizations enabling stakeholders to analyze age distribution, literacy trends, and population density patterns.</p>
+        <div class="impact">Impact: faster policy decision-making and strategic planning.</div>
+      </div>
+      <div class="project-card">
+        <h3>Titanic survival analysis & prediction</h3>
+        <p>End-to-end exploratory data analysis on historical passenger data using feature engineering, missing-value imputation, and correlation analysis.</p>
+        <p>Visualizations built in Matplotlib and Seaborn to uncover survival patterns and key predictive factors.</p>
+        <div class="impact">Outcome: strong accuracy identifying survival patterns via statistical modeling.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Technical proficiencies</h2>
+    <div class="skills-grid">
+      <div class="skill-row"><span class="cat">Languages</span><span class="vals">Python (NumPy, Pandas, Polars, TensorFlow)</span></div>
+      <div class="skill-row"><span class="cat">Databases</span><span class="vals">MySQL, SQL Query Optimization</span></div>
+      <div class="skill-row"><span class="cat">BI Tools</span><span class="vals">Power BI, Apache Superset, IBM Cognos, Minitab</span></div>
+      <div class="skill-row"><span class="cat">Visualization</span><span class="vals">Matplotlib, Seaborn</span></div>
+      <div class="skill-row"><span class="cat">Environments</span><span class="vals">Jupyter Notebook, PyCharm</span></div>
+      <div class="skill-row"><span class="cat">Core skills</span><span class="vals">Web scraping, dashboard development, statistical analysis, EDA</span></div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="edu-item">
+      <div><div class="deg">B.Tech, Computer Science & Engineering — Data Analytics</div><div class="inst">GLA University, Mathura</div></div>
+      <div class="yr">2020 – 2024</div>
+    </div>
+    <div class="edu-item">
+      <div><div class="deg">Senior Secondary (Class XII)</div><div class="inst">Tundla Public School</div></div>
+      <div class="yr">2019</div>
+    </div>
+  </section>
+
+  <section id="achievements">
+    <h2>Achievements</h2>
+    <div class="ach-grid">
+      <div class="ach"><div class="title">TCS National Qualifier Test</div><div class="desc">Cleared Phase-1 among thousands of nationwide candidates (2024).</div></div>
+      <div class="ach"><div class="title">IBM Presentation Coordinator</div><div class="desc">Led team coordination and delivered a technical presentation on emerging data & BI trends.</div></div>
+      <div class="ach"><div class="title">Process innovation</div><div class="desc">Championed automation initiatives that meaningfully reduced reporting turnaround time.</div></div>
+      <div class="ach"><div class="title">Quality excellence</div><div class="desc">Maintained exceptional data accuracy standards across all analytical projects.</div></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <h2>Let's talk</h2>
+  <p>Open to Data Analyst and Business Analyst roles.</p>
+  <div class="links">
+    <a href="mailto:upadhyaydevesh981@gmail.com">Email<span class="tip">upadhyaydevesh981@gmail.com</span></a>
+    <a href="tel:+919870794869">Call<span class="tip">+91 98707 94869</span></a>
+  </div>
+  <div class="contact-plain">
+    <span>upadhyaydevesh981@gmail.com</span>|<span>+91 98707 94869</span>
+  </div>
+</footer>
+
+</body>
+</html>
